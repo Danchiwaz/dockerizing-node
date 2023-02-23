@@ -1,0 +1,27 @@
+services:
+  db:
+    container_name: postgress_container
+    image: postgres
+    restart: always 
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRESS_DB: daniel_testing_db
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin_container 
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+
+
+#documentation 
+  # docker inspec containerID | grep IPAddress - getting the ip address of the postgres server
+  # the ip acts the host name 
+  # use the username root
+  # use the password root
